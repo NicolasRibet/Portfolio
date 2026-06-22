@@ -1,0 +1,146 @@
+aws
+Il Services
+Search
+[Option+S]
+4
+ct-js-sa-data/nicolasr @ indeed-jobseeker-sa-wsb
+• Query updated
+X
+Segment Metrics (SQL) was successfully updated.
+Amazon Athena > Query editor
+Editor
+Recent queries
+Saved queries
+Settings
+Workgroup
+| js_strategy_analyti...
+Athena now supports typeahead code suggestions to speed up SQL query development
+Edit preferences
+X
+Typeahead suggestions are turned on by default. You can change this setting in query editor preferences.
+Data
+Query 1 : X Query3 : X Triples Hierarchy (s... : X
+Segment Metrics (S... : X
+VIU
+677
+--attach_rate_attribute_count_job_volume_df --> Avg segment class attach rate, attribute count,jobvolume.(IQL:https://link.indeed.tech/IDASHZ3YG3T)
+Data source
+678
+-- Athena: rows, Ishbook: rows (8) (comp analysis: )
+datalake
+679
+680 -attach_rate_attribute_count_job_volume_df as (
+Database
+681
+682
+imhotep
+- Athena: rows, Ishbook: rows (8) (comp analysis: )
+683 -
+vith segment_class_attach_rate_job_id as (
+684
+Tables and views
+Create y
+685
+SELECT
+686
+date_trunc('day", parse_datetime(hour, "YYYy-MM-dd HH:mm:s5')) as time,
+687
+jobcountry as country,
+Q Filter tables and views
+688
+value as taxo_occupations_uuid,
+689
+jobia,
+• Tables (7272)
+690
+<12 3 4
+6
+691
+.. 37
+692
+--AVG_OVER(agg_job_id,segment_classes_count/MAX(segment_classes_defined_count, 1)) as "Avg segment class attach rate across all hosted jobs (KRZ.1) ,
+round(sum(cast(segment_classes_count as DOUBLE) / NULLIF(cast(segment_classes_defined_count as DOUBLE), Ø)), 4) as "Avg segment class attach rate across
+acmepageview
+Partitioned
+all hosted jobs (KR2.1)"
+693
+FROM
+acmephotomod
+Partitioned
+694
+searchablejobs
+695
+CROSS JOIN UNNEST(taxo_occupations) as t(value)
+acmepromoresolution
+Partitioned
+696
+WHERE
+697
+hour >= '2023-08-21 00:00:00' and hour < '2023-08-22 00:00:00'
+Partitioned
+698
+AND (waldovisibilitylevel IN ('jobalert', 'organic') OR (waldovisibilitylevel='sponsored' AND sponVisibility='spon_active'))
+699
+AND dupeStatus!=1
+• acmeqnareport
+Partitioned
+700
+AND jobagedays=0
+701
+AND feedid=50461
+acmeqnaservice
+Partitioned
+702
+AND (segment_classes_defined_count>0 OR segment_classes_defined_count=0) -- Until IMTEPD-689 is fixea
+703
+acmeqnaservice_ibw
+Partitioned
+AND (LENGTH(value) - LENGTH(replace(value,
+))< 1- source:https://stackoverflow.com/questions/27827376/sql-count-number-of-words-in-fielo
+TRTERMCOUNT(taxo_occupations_most_specific)=1 -- a job can have multiple matched occupations, but the segment class is per occupation, so you coul
+acmereviewexport
+ronee
+get weird numbers if you don't use the =1 (from Asher).
+704
+GROUP BY
+acmereviewfilters
+vanroned
+705
+706
+having jobcountry in ('US' /*group 0%, 'CA', "DE', 'FR', 'GB', "NL' /*group 1, 'AU', "MX', 'ES' /*group 2*%, 'BR', 'IT', 'IE', 'BE', 'CH', "SE', 'PL',
+acmereviewratingsservicerequest
+'SG' /*group 3%, 'IN',
+'JP" /*group 4*)
+Partitioned
+707
+and round(sum(cast(segment_classes_count as DOUBLE) / NULLIF(cast(segment_classes_defined_count as DOUBLE), Ø)), 4) IS NOT NULL
+• acmereviewreport
+Partitioned
+708
+ORDER BY 1, 2, 3, 4
+709
+acmereviewreport_ibw
+Partitioned
+710
+711
+acmereviewservicerequest
+Partitioned
+712
+-- Athena: rows. Ishhook: rows (*) (comn analvsis:)
+acmereviewservicerequest_ibw
+SQL
+Ln 711, Col 5
+Partitioned
+Run
+Explain [
+Cancel
+Clear
+Leate
+• Reuse query results
+• acmereviewstatsclientcallout Partitioned
+up to 3 days ago2
+acmereviewstatsservicerequest
+Partitioned
+CloudShell
+Feedback
+© 2023, Amazon Web Services, Inc. or its affiliates. Privacy Terms Cookie preferences

@@ -1,0 +1,93 @@
+40
+Get the jobids where the last visibility is Nowhere
+Queries
+New
+41
+(SELECT jobid
+• Run
+jobs_platform_pa...
+42
+, visibility as lastVisibility
+Trino
+subtotals
+43
+matchedVisibilityRuleIds
+Trino
+44
+FROM
+jobapi & xml_with
+Trino
+...
+45
+subtotals
+(SELECT jobId
+47
+, currentvisibility as visibility
+48
+currentmatchingvisibilityrules as matchedVisibilityRuleIds
+49
+, RANK() over (PARTITION BY jobid ORDER BY unixtime desc) updateRank
+50
+FROM datalake.imhotep.jobvisibilitystatusupdate
+51
+WHERE unixtime BETWEEN IMHOTEP_UNIXTIME('2025-03-23 00:00:00') AND IMHOTEP_UNIXTIME('2025-04-23 23:59:59')
+52
+--AND currentcountry != 'JP'
+53
+AND feedId != 50461
+54
+55
+Schema
+Parameters
+56
+WHERE updateRank = 1
+57
+AND visibility in (0)
+Used
+58
+) 5
+datalake.imhotep.wal..•
+59
+60
+CROSS JOIN unnest(s.matchedVisibilityRuleIds) as t(matchedVisibilityRuleId)
+datalake.imhotep.job..
+GROUP BY 1,2,3
+62
+) s1
+datalake.imhotep....
+63
+INNER JOIN w_r ON s1.matchedVisibilityRuleId =w_r.ruleId
+‹ datalake.imhotep.waldoru...
+65
+GROUP BY 1,2) s2
+66
+# activationdate
+67 GROUP BY 1,2
+No add reason
+68
+# add reason id
+69 ),
+# add_timestamp
+70
+71 job data AS (
+# add user id
+72
+SELECT
+Ax add username
+73
+CASE
+Abx delete reason
+74|
+WHEN jobcountry = 'US' THEN 'US'
+# delete reason id
+75
+WHEN jobcountry = "JP' THEN 'JP'
+76
+ELSE 'RoW' - Rest of World
+# delete_timestamp
+END AS country group,
+# delete user id
+78
+feedtype,
+Abx deleteusername
+inhid

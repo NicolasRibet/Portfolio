@@ -1,0 +1,77 @@
+= Google Cloud
+•• data tab ccoe-9752 -
+Search (/) for resources, docs, products, and more
+SANDBOX
+Set up billing to upgrade to the full BigQuery experience. Learn more C
+Explorer
++ ADD
+• - x
+• Untitled - X @ Untitled 2 - X @ with global column = X
+• NL Exec & Personal Assistants • X
++-
+NL Exec & Personal Assistants O RUN SAVE QUERY -
+*9 SHARE -
+O SCHEDULE * MORE -
+Q Type to search
+with cte as (
+Viewing resources.
+SELECT
+SHOW STARRED ONLY
+4
+,occupation_top_level_label
+datatab-ccoe-9752
+, occupation_label
+6
+Q Saved queries (4)
+:
+7
+,CAST(coalesce(sum(engaged_js),0) AS FL0AT64) as engaged_js
+à: Project queries
+8
+:
+,CAST(coalesce(sum(JS_S_JSCONN_NUM_engaged_js_w_pc),6) AS FLOAT64) as engaged_js_w_pc
+9
+.CAST(safe_divide(coalesce(sum(JS_S_JSCONN_NUM_engaged_js_W_pc), 0), coalesce(sum(engaged_js), 0)) AS FLOAT64) as placeholder_pct_eng_pc
+< NL Exec & Personal Assistan...
+10
+--,CAST(coalesce(sum(jobs_w_hiredsignal),0) AS FL0AT64) as jobs_w_hiredsignal
+11
+< Reach Occupation INTL data...
+:
+FROMstrategy-anlyt-ccoe-4114.occupation.fact_occupation_monthly_by_job_type_v7
+12
+where
+•
+<: Unpivoted query (new)
+:
+13
+14
+and month >='2023-05-01•
+with global column
+15
+and occupation_top_level_label is not null
+• • External connections
+16
+and occupation_label = "Executive & Personal Assistants")
+:
+17
+and country in ('NL')
+18
+group by 1,2,3,4
+19
+•
+20
+21
+22
+23
+SELECT *
+24
+FROM cte
+25
+UNPIVOT INCLUDE NULLS (value FOR metric name IN (
+26
+27
+engaged_js_w_pc,
+28
+placeholder_pct_eng_pc)|l
+29
