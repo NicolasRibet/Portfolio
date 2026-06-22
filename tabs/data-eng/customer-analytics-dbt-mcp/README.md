@@ -1,8 +1,8 @@
 # Customer Analytics ELT Pipeline with dbt, PostgreSQL, Docker, and OpenAI Codex
 
-This project is a portfolio-ready analytics engineering project that builds a local customer analytics pipeline using dbt, PostgreSQL, Docker, and OpenAI Codex.
+This project is an analytics engineering project that builds a local customer analytics pipeline using dbt, PostgreSQL, Docker, and OpenAI Codex.
 
-The project models raw e-commerce data into analytics-ready marts for customer segmentation and product performance analysis.
+The project models raw sales data into analytics-ready marts for customer segmentation and product performance analysis.
 
 ## Project Goals
 
