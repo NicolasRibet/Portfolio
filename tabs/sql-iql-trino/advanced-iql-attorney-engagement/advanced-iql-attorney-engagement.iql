@@ -1,0 +1,42 @@
+-- Clicks/CTRs for qualified/unqualified sub-groups, by titleid (with regex & macros).
+-- Who is in my qualified sub-group? https://go.indeed.com/IQLHCDCN3P
+
+FROM organic 6mo today, mobileorganic as all,
+     organic (
+       accountid in (
+         from resumedata 2011-01-01 today
+         where rezCountry = $countryvar
+           searchable = "yes"
+           education_degreename =~ $anydegreename
+           work_jobtitle_0 =~ $lastworkexp
+           not(work_jobtitle_0 =~ $excludelastworkexp)
+         group by accountid
+       )
+     ) 6mo today as desk_qualified,
+     mobileorganic (
+       accountid in (
+         from resumedata 2011-01-01 today
+         where rezCountry = $countryvar
+           searchable = "yes"
+           education_degreename =~ $anydegreename
+           work_jobtitle_0 =~ $lastworkexp
+           not(work_jobtitle_0 =~ $excludelastworkexp)
+         group by accountid
+       )
+     ) 6mo today as mob_qualified
+WHERE country = $countryvar
+  grp NOT IN ("privileged", "spider")
+GROUP BY titleid|top 100 by (desk_qualified.clicked + mob_qualified.clicked)| as titleid
+--having ([titleword2 =~ ".*associate.*"] > 0)
+SELECT
+  (desk_qualified.clicked + mob_qualified.clicked) as qualified_clicks,
+  PRINTF('%.4f', (((desk_qualified.clicked + mob_qualified.clicked) /
+    (desk_qualified.count() + mob_qualified.count())) /*qualified_ctr%*/)),
+  all.clicked as all_clicks,
+  PRINTF('%.4f', (all.clicked / all.count() /*all_ctr%*/))
+
+-- Variables
+anydegreename = "(.*law.*|.*attorney.*)";
+lastworkexp = "(.*attorney.*)";
+excludelastworkexp = "(.*assistant.*)";
+countryvar = "us"
