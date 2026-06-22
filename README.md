@@ -28,12 +28,3 @@ The layout mirrors the portfolio navigation:
 
 - `tabs/web-apps-and-websites/how-to-cuisine-shopify-liquid/` - Shopify Liquid snippet from portfolio screenshot.
 - `tabs/web-apps-and-websites/swapp-stemrule-webapp/` - Stemrule examples and expanded output.
-
-## Provenance
-
-- `source: written` means the code was present as selectable text in the portfolio export.
-- `source: screenshot-reconstructed` means the code was recovered from a screenshot by OCR plus visual review.
-- `source: screenshot-ocr` means the raw OCR is kept next to the original screenshot and should be verified before reuse.
-- `source: link-only` means the portfolio exposed an internal code/repo link, but not the code itself.
-
-Screenshots are preserved beside reconstructed snippets whenever the source was visual.
