@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_customer_analytics
+    description: Customer-level analytics mart with lifetime revenue, order behavior, and customer segmentation.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['high_value', 'mid_value', 'low_value', 'no_purchase']
+
+  - name: mart_product_performance
+    description: Product-level performance mart with completed sales, units sold, revenue, refunds, and cancellations.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null

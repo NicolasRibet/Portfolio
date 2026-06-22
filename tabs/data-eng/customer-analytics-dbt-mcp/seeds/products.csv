@@ -1,0 +1,6 @@
+product_id,product_name,category,launch_date,is_active
+101,Starter SQL Course,Education,2023-11-01,true
+102,Advanced dbt Course,Education,2024-01-10,true
+103,Analytics Templates,Digital Tools,2024-02-01,true
+104,Data Interview Guide,Career,2024-02-15,true
+105,Portfolio Project Kit,Career,2024-03-05,true

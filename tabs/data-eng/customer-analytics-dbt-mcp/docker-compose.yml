@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: customer_analytics_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: dbt_user
+      POSTGRES_PASSWORD: dbt_password
+      POSTGRES_DB: analytics
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

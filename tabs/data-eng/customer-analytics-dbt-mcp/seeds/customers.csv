@@ -1,0 +1,9 @@
+customer_id,first_name,last_name,email,signup_date,country,state,marketing_channel
+1,Ava,Martin,ava.martin@example.com,2024-01-15,US,WA,organic
+2,Liam,Chen,liam.chen@example.com,2024-02-03,US,OR,paid_search
+3,Sofia,Garcia,sofia.garcia@example.com,2024-02-21,US,CA,email
+4,Noah,Johnson,noah.johnson@example.com,2024-03-10,US,WA,referral
+5,Emma,Wilson,emma.wilson@example.com,2024-03-18,US,TX,organic
+6,Lucas,Brown,lucas.brown@example.com,2024-04-02,US,NY,paid_social
+7,Mia,Davis,mia.davis@example.com,2024-04-20,US,WA,email
+8,Ethan,Miller,ethan.miller@example.com,2024-05-01,US,FL,organic
