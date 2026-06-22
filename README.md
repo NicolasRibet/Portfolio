@@ -8,37 +8,26 @@ The layout mirrors the portfolio navigation:
 - `tabs/sql-iql-trino/`
 - `tabs/python/`
 - `tabs/web-apps-and-websites/`
-- `tabs/excel-google-sheets/`
-- `tabs/data-modeling/`
 
 ## Current Project Index
 
 ### SQL / IQL / Trino
 
 - `tabs/sql-iql-trino/advanced-iql-attorney-engagement/` - attorney title engagement query, with IQL and SQL versions.
+- `tabs/sql-iql-trino/NL-exec-&-personal-assistants/` - BigQuery query for Executive & Personal Assistants engagement metrics in the Netherlands.
+- `tabs/sql-iql-trino/jobs-platform-partner/` - Trino query for jobs-platform-partner visibility analysis.
 - `tabs/sql-iql-trino/revenue-per-job/` - revenue-per-job SQL for the Scalable Segmentation dashboard.
-- `tabs/sql-iql-trino/segment-metrics/` - Scalable Segmentation dashboard snippets reconstructed from screenshots.
-- `tabs/sql-iql-trino/scalable-segmentation-dashboard-sql-2/` - duplicate/copy of the Scalable Segmentation dashboard SQL project.
-- `tabs/sql-iql-trino/scalable-segmentation-dashboard-sql-3/` - duplicate/copy of the Scalable Segmentation dashboard SQL project.
-- `tabs/sql-iql-trino/scalable-segmentation-dashboard-sql-4/` - duplicate/copy of the Scalable Segmentation dashboard SQL project.
+- `tabs/sql-iql-trino/segment-metrics/` - segment metrics SQL for the Scalable Segmentation dashboard.
 
 ### Python
 
-- `tabs/python/rule-generator/` - Python rule generator reconstructed from screenshot.
+- `tabs/python/rule-generator/` - Python rule generator, including the screenshot-style V1 and cleaned-up V2 versions.
 - `tabs/python/nicolas-jessica-python-sandbox/` - British-English to American-English exercise reconstructed from screenshot.
 
 ### Web Apps & Websites
 
 - `tabs/web-apps-and-websites/how-to-cuisine-shopify-liquid/` - Shopify Liquid snippet from portfolio screenshot.
 - `tabs/web-apps-and-websites/swapp-stemrule-webapp/` - Stemrule examples and expanded output.
-
-### Excel / Google Sheets
-
-- `tabs/excel-google-sheets/data-tab-auto-refresh/` - screenshots and links for a data-tab auto-refresh workflow.
-
-### Data Modeling
-
-- `tabs/data-modeling/mock-interview-sql/` - SQL practice queries.
 
 ## Provenance
 
