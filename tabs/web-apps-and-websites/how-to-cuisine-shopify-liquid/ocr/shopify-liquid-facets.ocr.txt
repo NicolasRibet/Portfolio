@@ -1,0 +1,113 @@
+Edit code for Flow Backup - Current
+Preview
+Customize theme
+Expert theme help -
+(/) page.liquid
+grid-view-item.liquid
+product-template.liquid
+timber.scss.liquid
+collection-template.liquid X
+product-template-amazon-affiliate-outlink
+{/) password.liquid
+• {/) product.amazon-affiliate-outlir
+collection-template.liquid Older versions
+Delete file
+Save
+(/} product.grid.liquid
+100
+‹!-- Custom code by Nicolas to add tag group headers and group tags
+yn,
+101
+Q Search
+{/) product.liquid
+102
+{ if collection.handle %}
+103
+{° capture clearall %}/collections/{{ collection.handle }}{° endcapture %}
+(/) search.liquid
+104
+{8 elsif collection products.first.type == collection.title %}
+105
+{ assign clearall = collection.title url for type
+Sections
+106
+{% elsif
+== collection.title 8}
+107
+{o1551gcocLearaon Prodilestforstiteed0 uri_coz_eetdor 81
+108
+Add a new section
+{8 endif %}
+109
+<a href="{{ clearall }}" class="clearal1">|{ 'collections.filters.clear_all' | t }}</a>
+110
+(/) announcement-bar.liquid
+111
+<!-- Line break (by Nicolas) -->
+112
+{° capture string_with_newlines 8}
+• {1) article-template.liquid
+113
+114
+{8 endcapture 8}
+• (/) blog-template.liquid
+115
+{f string_with_newlines | newline_to_br }}
+116
+{1) cart-template.liquid
+117
+118
+{8 if section. settings. tags_enable and collection.tags != blank 8}
+(/) collection-list.liquid
+119
+120
+• (/) collection-template.liquid
+121
+<!-- A recursive loop to catch and filter out the different tag categories -->
+122
+{8 assign c = 0 %}
+123
+(/) custom-html.liquid
+{% for t in collection.all_tags 8}
+124
+{% capture cat }}{{ cat }){% capture temp_cat ¿}{% if t contains '
+_' 8}{8 assign cat_grp = t | split: '_' 8}{1 cat_grp.first !
+125
+{1} feature-row.liquid
+{% endfor %}
+126
+127
+create array of tag categories
+=->
+{/) featured-blog.liquid
+128
+129
+{8 assign cat_array = cat | split: '+' 8}
+{/) featured-products.liquid
+130
+<!-- loop through tag categories -->
+131
+{% for i in cat
+array 8}
+• {/) footer.liquid
+132
+<!
+ignore
+if
+Eag
+category is empty -->
+133
+{ unless i == •'
+8}
+• {1) footer-newsletter.liquid
+134
+135
+(/) header.liquid
+136 -
+<div class="collection-sidebar-filter small-hide">
+137
+ihcrentranmarr:llelntuanmelhe
+esc to dismiss cmd|
+to save
+Light
+Dark

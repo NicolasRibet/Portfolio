@@ -1,0 +1,105 @@
+Queries
+New
+78
+feedtype,
+79
+jobid
+O Run
+jobs_plattorm_pa…..
+SuoToTas
+Trino
+...
+80
+FROM datalake.imhotep.searchablejobs
+WHERE
+unixtime BETWEEN IMHOTEP_UNIXTIME('2025-04-23 00:00:00') AND IMHOTEP_UNIXTIME('2025-04-23 23:59:59')
+Trino
+jobapi & xml_with
+82
+--AND ( (ismetadataEmailExist = 1 OR ismetadataApplyEmailExist = 1)|
+Trino
+subtotals
+83
+AND feedid != 50461 - indexed jobs only
+AND feedid IN (
+85
+SELECT feed_id
+FROM partnerappsnapshot
+CROSS JOIN UNNEST (job_feed_ids) AS t(feed_id)
+WHERE unixtime BETWEEN IMHOTEP_UNIXTIME('2025-03-23') AND IMHOTEP_UNIXTIME(' 2025-04-23')
+AND CONTAINS(partner_labels, "jobs_platform_partner')
+91
+-- AND feedtype IN ('jobapi','xml')
+92
+AND jobid IN (SELECT jobId FROM last_visibility)
+Schema
+Parameters
+93 )
+94
+Used
+95 - Detailed data by country and feedtype
+96 SELECT
+• datalake.imhotep.wal... ••
+97
+country_group,
+datalake.imhotep.job. …
+98
+feedtype,
+99
+COUNT(DISTINCT jobid) AS job_count
+• datalake.imhotep....O
+100 FROM job_data
+101 GROUP BY 1, 2
+‹ datalake.imhotep.waldoru...
+102
+103 UNION ALL
+# activation_date
+104
+Ax add_reason
+105 -- Subtotals by country
+# add_reason_id
+106 SELECT
+country_group,
+# add_timestamp
+108
+'SUBTOTAL' AS feedtype,
+# add_user id
+109
+COUNT(DISTINCT jobid) AS job_count
+Nx add_username
+110 FROM job_data
+Abx delete_reason
+111 GROUP BY 1
+# delete_reason_id
+113 ORDER BY
+# delete_timestamp
+country_group,
+# delete_user_id
+CASE WHEN feedtype = 'SUBTOTAL' THEN 1 ELSE O END,
+Ax delete username
+feedtype
+#effective_all_date
+#effective_none_date
+Table
+Untitled Visualization
++
+Link: 0 A
+# flamdex_doc_id
+# flamdex shard id
+Description
+#has_messaging_tags
+Search:Enter value
+Nx indexversion
+Ax jira_number
+country_group
+= feedtype
+job_count
+=
+Ax lang
+aaa3
+# recent_job_count
+Page Size: 1000 -
+1 to 10 of 10
+K< Page1of1 > »
+Ab rule
+trulo id

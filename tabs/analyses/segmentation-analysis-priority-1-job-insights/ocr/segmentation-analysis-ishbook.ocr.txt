@@ -1,0 +1,120 @@
+•il Ishbook
++ Create
+® Help/FAQ
+X Pending Requests 27
+© Status -
+Nicolas Ribet -
+SEG Analysis Priority 1 Job Insights
+• Run View Source|
+Edit
+• Permissions
+M Subscribel
+More -
+Top 10 attributes popularity rank (indexed vs hosted) for the R
+Updated 2023-03-08T12:34-25 by nicolasr. Selected kernel: "Python 3.7 (Compatibilitv)".
+Among indexed jobs in the Registered_Nurses segment, how many contain the
+dataset0
+verifiedExtractedAttributeld verifiedExtractedAttribute jobcount_
+Outputs
+O indexed
+9753efd4-5d0c-437f-8b3d-
+4e9e3cced176
+RN License
+1 indexed
+35d63f15-bb29-499f-abb2=
+20bcbc6e0555
+Health insurance
+segment_classes_in_this_segment: Returns the list of segment classes (with a mapping to fundamental classes) and their underlying attributes for this segment.
+recall_per_segment_class: Returns the current job coverage (recall) for each segment class.
+2cexed
+6fc3bae4-ffec-4ac1-afad-
+8b18cedde582
+BLS Certification
+data_more_likely_to_be_missing_from_indexed_jobs: Returns attributes missing from indexed jobs.
+3
+indexed
+066b58bb-5596-41cO-ad78-
+c7450cdfcfee
+Full-time
+top_n_attributes_missing_from_indexed_jobs: Returns n sample lists of actual jobs where the top n attributes exist in hosted jobs but don't in indexed ones.
+interdependent_attributes_across_occupations: Returns a list of segments that have interdependence for a specific attribute. The last question is segment agnostic. Attribute counts will be sorted
+4 indexed
+63aca37-cbb0-425a-bd3:
+6702b5eac/
+401(k)
+in descending order by the first attribute you choose.
+5 indexed
+41e1a3db-d856-466a-99bb-
+(341b44be278
+Vision insurance
+6 indexed
+902258b6-2c89-4990-ae77-
+048ACTCeS98
+Dental insurance
+Notes/Caveats
+7 indexed
+ad1ef0a-014e-4925-80g
+c52ac045
+Nursing
+8 indexed
+04f06bb1-4e80-4998-8eac-
+- You may turn queries on & off to minimize loading time.
+72eebf7fd0a8
+401 (k) matching
+- Segment = How Scalable Segmentation describes an occupation associated with a geographic location in Indeed's Taxonomy (e.g. Registered Nurse in the U.S). More information:
+9 indexed
+83731791-ebfc-491d-a6ae-
+504f10789ffe
+Nursing
+https://link.indeed.tech/GLYMZK697
+- Certified Segment = An occupation represented in Indeed's Taxonomy that has been selected for structured data improvements, specifically adding Segment Classes and Attributes. The list of
+Among hosted jobs in the Registered_Nurses segment, how many contain the 1(
+certified segments is expected to grow over time. More information: https://link.indeed.tech/GLYMZK697
+dataset(
+verifiedExtractedAttributeld verifiedExtractedAttribute jobcount_n
+- Custom/Segment Class = A sorting bucket for a group of concepts from Indeed Taxonomy that all share a common feature, or are relevant to a similar set of use cases. More information:
+hosted
+53efd4-5d0c-437f-8b3
+https://wiki.indeed.com/x/f8eoDQ
+903cced1
+RN License
+- Fundamental class = Curated list of broad and intuitive categories recognizable to every stakeholder, job seeker, and employer in most markets. More information:
+hosted
+:66b58bb-5596-41 cO-ad78.
+c7450cdfcfed
+Full-time
+https://link.indeed.tech/GLY8TEC2M& https://link.indeed.tech/GLYRTWRAT
+hosted
+1bb6416b-a5e6-4a33-b5f3-
+- Segment class type = If a subclass of Skill, License, Certification, Educational Indicator, or Applicant Background, it's a Qualification type segment class. Everything else is Context type. (
+ecdb6fd0b22d
+Day shift
+hosted
+35d63f15-bb29-499f-abb2-
+20bcbc6e0555
+Health insurance
+hosted
+6fc3bae4-ffec-4ac1-afad-
+Owner
+8b18cedde582
+BLS Certification
+hosted
+902258b6-2c89-4990-ae77-
+b487fc1c0393
+Dental insurance
+Nicolas Ribet (nicolasr@indeed.com), Bl Pulse team.
+hosted
+41e1a3db-d856-466a-99bb-
+(341b44be278
+Vision insurance
+Collapse Documentation
+hosted
+dad1ef0a-014e-4925-80af-
+5ac52ac0455al
+Nursing
+8d2acc9f-8d07-4c1e-9d1a-
+8
+hosted
+e55caa0c835d
+Night shift
+a63aca37-cbb0-425a-bd35-

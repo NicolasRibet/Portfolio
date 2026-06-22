@@ -1,0 +1,1 @@
+Swapp rule: title:"{{fr_'}}h{{fr_e}}b{{fr_e}}rgement{{fr_s}} loca{{fr_lesa}}" (french rule, stands for “local hospitality”)

@@ -1,0 +1,59 @@
+: Z Confluence
+Spaces v
+Peonle Questions ¾
+Calendars
+Create...
+Search
+› New Hire Setup and Helpf
+Dashboard /... /IQL & 4 435 view(s)
+Edit
+* Save for later
+• Watching
+%Share
+› Introduction to Taxonomy
+IQL-104: Advanced Exercises
+› Waldo
+createa by nicolas kibet, last moairiea by sam koonce on Jan Z1, zUzu
+› PoolParty & Yellow Hat
+› Indeed Occupations & Cur
+IQL Advanced Exercise
+› Indeed Attributes & Rosetl
+› Indeed Resume Occupatic
+I This is not a required training module and should be undertaken only if you are already familiar with IQL or SQL basic concepts and would like to gain more understanding of advanced IQL /IQL2.
+v IQL
+› IQL-101: Basics
+It is required to first complete the IQL-103: Exercises module which covers important IQL queries for Taxonomy that all analysts should master. It will also help you determine if you feel confident to successfully complete IQL-104:
+• IQL-102: Tips & Tricks
+Advanced Exercises.
+• IQL-103: Exercises
+Questions in IQL-104: Advanced Exercises cover a variety of IQL1 and 2 questions, and go in incremental difficulty. The first 6 questions focus on IQL1 (although a few IQL2 equivalents can be provided), while the last 4 questions focus
+• IQL-104: Advanced Ext
+on IQL2. The first questions will provide hints or IQL links to help you, while the last ones may provide less information.
+› JIRA
+› Taxonomy Improvements ¿
+Practice Queries IQL1:
+› SPARQL (note: this space
+› Taxonomy Newsletter
+› Taxonomy Style Guides + 'GI
+1. Jobseeker's Current and Intended Location - This query shows french engineers looking for jobs in the US, where they are in France and where they want to work in the US. rcv = jsv helps us filter out bot traffic, Inorm!='''' is
+used to exclude blank locations, ipcountry/ipcityraw/ipregion are multilevel parameters displaying the user's location pulled from their IP address. Be aware that ipcity is the tokenized user's IP city, and ipcityraw is its un-tokenized
+› Taxonomy Team Procedures
+counterpart. This type of search is useful in determining dynamics of interest and job searches patterns across regions/countries in specific industries.
+• Taxonomy Tooling Updates
+EXERCISE:
+› Archive
+a. In the last 30 days, how many Canadian physicians currently in Vancouver, BC looked for jobs across the border in Seattle, WA? Hint: country=us means the country site used was the U.S site.
+› Publication Workflows: Over
+. Since the start of this year, how has this query pattern evolved? Would you say this is a popular query? Why do you think that is? Hint 1: Grouping by time can help you display your results in the form of a graph. Hint :
+• Taxonomy Cookbook
+O CA and US use the same wording for each job? Are highly specialized diplomas always recognized across borders
+• Notes on job titles, normtitles,
+› Indeed Attributes & Rosetta (T.
+2. ZRPs - ZRP stands for Zero Result Page. It is shown when the combination of location and job title does not return any match. ZRPs are a poor experience for the user and can be detrimental from a SEO standpoint. The ZRP rate
+› Deprecated pages (Metadata &
+differs by market and is influenced by several factors (e.g: the number of live jobs in a particular area for instance).
+• Content Formatting Templates
+EXERCISE:
+a. Graph the distribution between ZRPs and non-ZRPs organic SERPs in Germany over the past 12 weeks, display it in a % format. Hint: oji = 0 to show ZRPs. Do you think we should filter out bots here or not?
+O Space tools
+b. Usina the same auery, graph the ZRP rate instead. Hint 1: To calculate a rate, vou must compare the number of ZRPs to the total number of displavs under Select.

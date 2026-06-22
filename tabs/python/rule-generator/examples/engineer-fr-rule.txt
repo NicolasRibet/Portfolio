@@ -1,0 +1,4 @@
+Example for engineers using the FR example:
+English rule: title:(engineer OR engineers)
+French rule:
+title:(ingénieur OR ingénieurs OR ingénieure OR ingénieures OR ingenieur OR ingenieurs OR ingenieure OR ingenieures OR d'ingénieur OR d'ingénieurs OR d'ingénieure OR d'ingénieures OR d'ingenieur OR d'ingenieurs OR d'ingenieure OR d'ingenieures OR d’ingénieur OR dingénieurs OR d’ingénieure OR d’ingénieures OR d’ingenieur OR d’ingenieurs OR d’ingenieure OR d’ingenieures OR l'ingénieur OR l'ingénieure OR l'ingenieur OR l'ingenieure OR l’ingénieur OR l’ingénieure OR l’ingenieur OR l’ingenieure OR ingé OR inge OR d'ingé OR d'inge OR d'ingé OR d'inge OR d’ingé OR d’inge OR d’ingé OR d’inge OR engineer OR engineers)

@@ -1,0 +1,36 @@
+{%- comment -%}
+Source: screenshot-reconstructed from Shopify theme editor.
+Visible portion only; verify against the original theme before reuse.
+{%- endcomment -%}
+
+<!-- Custom code by Nicolas to add tag group headers and group tags -->
+{% if collection.handle %}
+  {% capture clearall %}/collections/{{ collection.handle }}{% endcapture %}
+{% elsif collection.products.first.type == collection.title %}
+  {% assign clearall = collection.title | url_for_type %}
+{% elsif collection.products.first.vendor == collection.title %}
+  {% assign clearall = collection.title | url_for_vendor %}
+{% endif %}
+<a href="{{ clearall }}" class="clearall">{{ 'collections.filters.clear_all' | t }}</a>
+
+<!-- Line break (by Nicolas) -->
+{% capture string_with_newlines %}
+
+{% endcapture %}
+{{ string_with_newlines | newline_to_br }}
+
+{% if section.settings.tags_enable and collection.tags != blank %}
+
+  <!-- A recursive loop to catch and filter out the different tag categories -->
+  {% assign c = 0 %}
+  {% for t in collection.all_tags %}
+    {% capture cat %}{{ cat }}{% capture temp_cat %}{% if t contains '_' %}{% assign cat_grp = t | split: '_' %}{{ cat_grp.first }}+{% endif %}{% endcapture %}{% endfor %}
+
+  <!-- create array of tag categories -->
+  {% assign cat_array = cat | split: '+' %}
+
+  <!-- loop through tag categories -->
+  {% for i in cat_array %}
+    <!-- ignore if tag category is empty -->
+    {% unless i == '' %}
+      <div class="collection-sidebar-filter small-hide">

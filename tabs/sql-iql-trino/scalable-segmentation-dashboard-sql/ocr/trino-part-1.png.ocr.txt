@@ -1,0 +1,92 @@
+=
+Copy of New workspace
+Search across Indeed Data ".
+• Dashboard
+& Share G)
+Save
+1 -- гor
+Queries
+New
+integrated jobs (xml or api - and actually I think jobs_platform_partner is better as a grouping than just the two feed types), how many jobs are in nowhere on a rule that is not cat_risk?
+• Run
+jobs_platform_pa...
+Trino
+subtotals
+4 WITH
+Trino
+th
+jobapi & xmi_with
+Trino
+•..
+6 w_r as (
+subtotals
+select visibility, rule_id as ruleId, cast(rule_tag_id as integer) as ruleTagId
+FROM datalake.imhotep.waldorulesnapshot
+CROSS JOIN unnest(rule_tag_ids) as t(rule_tag_id)
+10
+WHERE unixtime BETWEEN IMHOTEP_UNIXTIME('2025-04-23 00:00:00') AND IMHOTEP_UNIXTIME(' 2025-04-23 23:59:59')
+11
+AND delete_timestamp is NULL
+12
+AND visibility in ('nowhere')
+13
+AND contains(rule_tag_ids,
+'997') = FALSE —- exclude rules jobs with cat_risk tags based on exclusion from jobs management
+14
+AND not contains(rule_tags,
+'cat_risk')
+15
+/* AND has_messaging_tags =0*/
+Schema
+Parameters
+16
+GROUP BY 1,2,3)
+17
+Used
+18 , last_visibility as (
+19
+datalake.imhotep.wal..
+20 SELECT
+21 s2. jobId as jobId,
+datalake.imhotep.job...
+22 (case when s2.lastVisibility = 0 THEN 'nowhere' end) as lastVisibilityStatus
+23 --,
+matchedLastVisibilityRules
+datalake.imhotep..•
+24
+matchedLastVisibilityRulesWithMessagingTags
+25
+, count(distinct(jobId)) as jobs
+datalake.imhotep.waldoru.
+26 FROM
+27
+-- add rule tag info
+# activation_date
+(SELECT s1. jobId as jobId
+Nx add_reason
+29
+lastVisibility
+# add_reason_id
+30
+-, count(distinct(w_r.ruleId)) as matchedLastVisibilityRules
+# add_timestamp
+31
+count(distinct(case when w_r.tagId is not null then w_r.ruleId else null end)) as matchedlastVisibilityRuleswithMessagingTags
+32
+FROM
+#adduser id
+33
+Abx add_username
+34
+-- Add matching ruleids
+Abx delete reason
+SELECT s. jobId
+#delete_reason_id
+, s.lastVisibility
+# delete_timestamp
+, cast(matchedVisibilityRuleld as bigint) as matchedVisibilityRuleId
+FROM
+# delete_user_id
+39
+Abx deleteusername
+Get the inhids where the lact vicihility ic Nowhere

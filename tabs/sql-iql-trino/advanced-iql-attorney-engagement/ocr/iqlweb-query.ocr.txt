@@ -1,0 +1,420 @@
+Chrome
+File
+Edit
+History
+Bookmarks
+People
+Tab
+Window
+Help
+฿
+62% O
+Wed May 6 18:36 Nicolas Ribet
+• squall.indeed.com/iqlweb/#q[]=--%20Clicks...
+Apps
+V Ticketina Teams a...
+Al Indeed AggCentra...
+199+ DachenNor.
+2017 Quarterly Me
+Job Seeker NºSS
+Country Meetings....
+Other Bookmarks
+2 -- Who is in my qualified sub-qroup? https://go.indeed.com/IQLHCDCN3P
+1 -- Clicks/CTRs for qualified/unqualified sub-groups, by titleid (with regex & macros).
+4 FROM organic 6mo today, mobileorganic as all,
+oraanic (accountid in (trom resumedata 2011-01-01 todav where rezCountry = Scountrvvar searchable = "ves education degreename =- Sanvdeareenam
+work_jobtitle_0 =~ Şlastworkexp not (work_jobtitle_0 =- Şexcludelastworkexp) group by accountid)) 6mo today as desk_qualified,
+work jobtitle_0 =- Şlastworkexp not(work jobtitle 0 =- Sexcludelastworkexp) group by accountid)) 6mo today as mob qualified
+mobileorganic (accountid in (from resumedata 2011-01-01 today where rezCountry = Scountryvar searchable = "yes" education_ degreename =- $anydegreename
+8 GROUP BY titleid|top 100 by (desk_qualified.clicked + mob_qualified.clicked)| as titleid --having ([titleword2 =- ".*associate.*"] > 0)
+7 WHERE country = Şcountryvar grp NOT IN ("privileged",
+"spider")
+mob_qualified.clicked)/(desk_qualified.count() + mob_qualified.count()))/*qualified_ctr8*/)),
+(desk qualified.clicked + mob qualified.clicked) as qualified clicks, PRINTF('8.4f',(((desk qualified.clicked +
+au,CCKeOaSaCCKS PKENo,nlaн, Ceкeora, COlnc AaCESA
+anvoetreename =rawar atomevat astworkexo ="c amtorneva, excudeasiworkexo = t assistnt, countrvyar ="US
+Hide Fields
+Sort Alphabetically
+Run
+Link
+BackendProd
+1QL2 •
+Limit(5,000
+More
+Help
+Export
+Table
+Pivot
+Graph
+Plot
+Datasets
+* mobileorganic e
+100 lines
+ouery into
+esumedaiai
+* organic O
+Search:
+Fields (mobileorganic)
+titleid
+qualifi
+ed cli
+qualifi
+*6,292
+*769.19
+ed ct
+all_ct
+*66,148,907
+г%
+Tseen
+s *q
+s *grp
+*js_site_country_code
+*388.69
+ASSOCIATE ATTORNEY [6309]
+1,069
+8.78
+138,224
+4.01
+ATTORNEY [4788]
+379
+9.2
+64,285
+4.6
+*clicked
+*agg_job_id
+*applystarts
+Corporate Counsel [2193]
+299
+8.93
+49,439
+4.02
+s *job_country_code
+s *previousQuery
+Staff Attorney [48702]
+292
+8.55
+43,458
+3.58
+I *job_feed_id
+Immigration Attorney [110824]
+206
+9.54
+10,035
+3.22
+*indeedapplied
+utele
+Legal Counsel [95316]
+169
+7.38
+33,733
+4.64
+*ctk
+oo uue caredory
+category
+Associate General Counsel [39575]
+149
+6.95
+42,816
+4.64
+*job_source_id
+General Counsel [11381]
+146
+7.02
+40,282
+4.89
+*job_title_normalized
+1 *indeedapply
+*advertiser_id
+legal assistant [4643]
+137
+6.12
+465,380
+4.6
+Paralegal [977]
+136
+5.36
+265,095
+4.32
+ipcountry
+*salaryshowntype
+extractedAttributeld
+11
+Litigation Attorney [4923]
+135
+7.58
+17,367
+3.56
+*accountid
+Document Review Attorney [107727]
+121
+7.03
+9,878
+3.69
+lanaae
+*viewjobapplyclicked
+13
+Litigation Associate [44849]
+104
+7.91
+16,147
+3.71
+Dact
+*ndxgrp
+Counsel [105164]
+102
+10.28
+23,850
+4.8
+*jobageminutes
+15
+Assistant General Counsel [98784]
+98
+7.67
+36,129
+4.01
+s *titleword2
+Associate Counsel [17543]
+*job_visibility_level
+90
+8.29
+20,242
+4.36
+dislike
+idx_tk
+17
+Contract Attorney [365634]
+85
+9.48
+8,268
+4.51
+•*indeedapplyviewed
+paralegal/legal assistant [75879]
+unixume
+78
+6.9
+201,443
+4.73
+*jobtype
+19
+Immigration Paralegal [32620]
+75
+7.9
+29,990
+3.84
+sourcelyut
+*salarytype
+Deputy General Counsel [203008]
+72
+8.97
+7,819
+2.75
+aaxo occupations
+vermed-xtractecAtinoute
+21
+Corporate Attorney [4926]
+70
+8.08
+10,809
+4.1
+qwords
+22
+Attorney Advisor [260398]
+67
+8.85
+9,001
+4.12
+1 *totalOrgAppStarts
+jlEnhanced
+23
+Litigation Associate Attorney [53150]
+66
+8.59
+6,718
+3.51
+*taxo_occupations_most_specific
+jlcity
+ASSOCIATE [3368]
+65
+11.82
+229,519
+3.01
+*joblanguage
+25
+Assistant United States Attorney [493689]
+64
+8.23
+18,811
+4.25
+manadee svnser
+useragent
+26
+Corporate Paralegal [4908]
+60
+12.55
+24,649
+3.36
+totalSponAppStarts
+27
+Real Estate Attorney [4943]
+60
+8.22
+8,312
+3.03
+*jlmsa
+resconsivecmolover abelu soaved
+idaaccountjobtitlewordsraw
+28
+CONTRACT SPECIALIST [22441]
+55
+7.54
+154,859
+3.38
+29
+matched_synsets
+Litigation Paralegal [4903]
+54
+4.33
+89,540
+3.74
+Koosiion
+30
+Attorney At Law [382442]
+51
+7.16
+6,364
+4.72
+idx_country
+31
+Administrative Assistant [282]
+idx_account_job_title_words
+50
+3.7
+7,994,391
+4.63
+TeedDackhatlnd
+32
+Customer Service Representative [392]
+46
+4.87
+9,650,359
+3.68
+yyyymmdd
+taxo_clicked_occupations_top_level
+Bartender [1086]
+45
+4.41
+1,953,480
+2.55
+*viewjobsaved
+scoreOrgApplyRatePerSeen
+34
+LEGAL Assistant/Paralegal [14303]
+43
+5.97
+124,423
+4.51
+тaovertsementio
+fromage
+35
+Corporate Associate [48712]
+43
+7.54
+6,222
+3.62
+marcauele
+applied_matching_method
+36
+Senior Counsel [94378]
+41
+6.91
+13,554
+4.06
+unifRank
+ICILY
+37
+Legal Intern [547145]
+41
+8.72
+24,307
+3.96
+scoreccur
+38
+Contracts Manager [46299]
+40
+normQuery
+7.71
+31,255
+3.2
+*jlregion1
+hhmm
+FamilyLaw Attorney [574185]
+40
+6.81
+5,589
+2.97
+*taxo_occupations_top_level
+40
+Help Wanted [18226]
+39
+4.62
+7,964,992
+4.67
+*slcity
+titlebigram (
+General Attorney [369479]
+39
+7.29
+10,491
+4.1
+sort
+42
+Server [373]
+34
+2.85
+4,876,568
+2.31
+scoreLogisticBadMatchRate
+idx_expectedAnnualSalarylnCents
+43
+Tax Preparer [1872]
+33
+5.95
+200,027
+2.28
+Inoexro
+44
+Executive Assistant [3389]
+urgentlyHiring
+taxo_clicked_occupations_most_specific
+32
+5.11
+1,826,844
+4.28
+nadldamin i codt
+Associate Attorney, Litigation [417468471]
+32
+8.4
+3,684
+3.65
+totalOrgApplies
+extractedAttribute
+46
+TRIAL ATTORNEY [22491]
+30
+4.27
+8,151
+3.58
+totalScoreBlended
+47
+In-house Counsel [43811]
+30
+10.91
+5,647
+5.15
+cmijp_originalJobld
+48
+Assistant Attorney General [719865]
+30
+8.98
+9,707
+4.42

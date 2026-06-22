@@ -1,0 +1,285 @@
+BIREQ 33815 - Data Tab Auto Refresh (Scalable Segmentation progress tracking)
+# • O
+File
+Edit
+View Insert
+O -
+# Share
+Format Data
+Tools Extensions Help
+100%
+% .0_
+•O 123 Detaul... ×
+I S A
+AJ15
+fx Construction & Extraction Occupations
+Please read the "Instructions" tab to refresh data, before sorting, or for segment coverage data specific to KR 2.1.
+certncd
+% total jobs
+/aod)
+ova today
+% total AS
+Weekly Active JS
+ra today.
+Job country_code =en PrerLabel
+= PrefLabel
+uula
+2.U4
+73.89%
+25.04%
+us
+Light Truck & Delivery Drivers
+Light Truck & Delivery Drivers
+a4c2e1d9-cb4b-4b27-b2ea-9dbcc88445b6
+TRUE
+1.49%
+1.92%
+949,309
+US
+Security Guards
+Security Guards
+bb8dc31a-8a6b-42f5-bb34-a882837bf682
+TRUE
+0.53%
+1.23%
+474,959
+Kelal Merchandisino Occupations
+Kelail Merchandising Occupations
+81C0/88-5030-4017-9420-9145/3a0b8e
+FALSE
+0.01
+0.53%
+474,596
+VOOKS
+2d76b476-32d8-48a2-a3ed-343f79ddb5c8
+FALSE
+3.03%
+2.59%
+401,262
+First-Line Managers
+First-Line Managers
+8ea147da-43c4-417c-ac7c-14ae1b43943c
+TRUE
+3.76
+0.95%
+399,727
+Lont ruck & uelver Dnivers
+8чc енон-cочннчнхненнхccв8н÷05
+FALSE
+7.25
+2.56%
+290,241
+FR
+Sales Representatives
+Commerciaux/les
+794e7a69-a683-4983-8ec1-6fd27d866aca
+TRUE
+2.92%
+3.67%
+283,637
+Office Managers
+ofice Manacers
+1653c892-85h-4562-8615-c3ha7acak&
+FALSE
+0.16%
+0380
+264 058
+US
+rooc Service Hosts
+rooc service Hoss
+ad86a43f-8a5b-4585-8c75-23d62461d5c7
+TRUE
+0.56%
+Light Truck & Delivery Drivers
+Light Commercial Vehicle & Delivery Drivers
+a4c2e1d9-cb4b-4b27-b2ea-9dbcc88445b6
+FALSE
+0.60%
+Cooks
+Cooks
+20760476-3208-4897-2380-343179000508
+TRUE
+1.44
+Construction & Extraction Occupations
+Construction & Extraction Occupations
+118cbde4-a73e-4185-9664-bec5b3438526
+FALSE
+0.22%
+Venue & Attractions Occupations
+dfca7fd1-16d5-4c43-981a-7b19d6a57c61
+FALSE
+0.24%
+Properiy Leasino & Manadement Occupations
+Properiv Leasino a Manacement Occupatons
+b3d1accb-2a45-4523-8975-ca9e5a17681b
+TRUE
+After-School & Camp Counselors
+After-School & Camp Counselors
+ed1caf2e-f8c7-4b74-a242-685a64c944b5
+TRUE
+0.29%
+Data & Technical Business Analysts
+Data & Technical Business Analysts
+2a444cae-22d3-473e-942f-928ceeb93716
+TRUIF
+Licht lruck & Deliver Dnivers.
+Chauteurs de camions leoers et livreurs
+840/e109-C040-40-0288-900c0884456
+FALSE
+1.11
+CA
+Light Truck & Delivery Drivers
+Light Truck & Delivery Drivers
+a4c2e1d9-cb4b-4b27-b2ea-9dbcc88445b6
+FALSE
+1.11%
+Sales Representatives
+Representantes de ventas
+794e7a69-a683-4983-8ec1-6ld27d866aca
+FALSE
+5.49%
+Keceotonisis
+Métiers de l'accueil physique et téléphonique
+8f13719b-aba5-4584-a6bc-879d8e91c785
+FALSE
+0.28%
+Accountants
+Accountants
+5bc4432c-c7a9-42a9-b721-a9f5c3af22b1
+FALSE
+0.38%
+Office Managers
+1653089-1650-4568-8615-03081 180938
+FALSE
+0.35
+Logistics Occupations
+Lodistics Occupations
+1cd44393-181d-436f-aa9a-b311d367acf2
+FALSE
+0.09%
+US
+Public Relations Occupations
+Public Relations Occupations
+f55bb25b-ebec-48ef-92f1-1c29d18a59d9
+SAI CE
+0.09%
+Sales Renresentatives
+Sales Renresentatives
+79407269.96834983-8801-6627086620
+TRUE
+3.90%
+US
+bankine a Lencino occuoations
+bankino a Leneino occuoations
+b21b523f-3924-4e5e-b9be-6a617b609821
+FALSE
+0.11%
+Warehouse & Distribution Center Supervisors
+Warehouse & Distribution Center Supervisors
+3855f14c-2536-4655-9dfo-78596d55515d
+FALSE
+0.09%
+Bankina & rinance Sales Occupations
+Bankina « rinance Sales Occupations
+087500e-3/8-4411-2906-66534ek08g
+FALS-
+BR
+Sales Representatives
+Representantes de Vendas
+794e7a69-a683-4983-8ec1-6fd27d866aca
+FALSE
+3.28%
+US
+Health Insurance Verification Occupations
+Health Insurance Verification Occupations
+19(397ce-71e2-47a6-8d1c-a6e464cdaaaa
+FALSE
+0.04%
+First.line Manaaers
+Firstaline Manaaers
+8ea147da-43c4-417c-ac7c-14ae1b43943c
+FALSE
+0.86%
+Customer Support & Client Services Managers
+Customer Support & Client Services Managers
++342ea3a-5d8a-4516-8ba6-4b96319d3dfb
+FALSE
+0.05%
+Security Guards
+Security Officers
+hh8dc21a-8akh-42f5-hn24-a882827h1882
+FAISE
+Kecentionisis
+Addett ala reception
+8f137f9b-aba5-4584-a6bc-879d8e91c785
+FALSE
+0.71%
+Teacher & Student Assistants
+Teaching Assistants
+f7a715da-1de5-46dd-ab3d-d2c54718a2d9
+FALSE
+1.13%
+Construction » Extraction Occunations
+Construction & Extraction Occupations
+118ch004-273A-4185-9664-b80503438525
+FALSE
+0.77%
+Construction & Extraction Occupations
+Froressions cela constucion erce rexracion
+118cbde4-a73e-4185-9664-bec5b3438526
+FALSE
+0.77%
+Cooks
+Cooks
+2d76b476-32d8-48a2-a3ed-343f79ddb5c8
+FALSE
+1 100
+HVAC & Refrigeration Technicians
+HVAC & Refrigeration Technicians
+Addefc9h-84e5-467c.aap-ade?krac85e6
+FALSE
+Venue & Attractions Occupations
+Venue & Attractions Occupations
+dfca7fd1-16d5-4c43-981a-7b19d6a57c61
+FALSE
+0.10%
+US
+Information & Network Security Engineers & Analysts
+Information & Network Security Engineers & Ana 7cfcfcc5-0666-4717-a13c-a12eb188daf4
+TRIIF
+0.15%
+Onice Manacers
+Gestionnaires de bureau et de services administ: 1653c892-165b-456a-8615-c3baf7faca38
+FALSE
+0.35
+CA
+Office Managers
+Office Managers
+1653c892-f65b-456a-8615-c3baf7faca38
+FALSE
+0.35%
+Light Truck & Delivery Drivers
+Auslieferungsfahrer"innen
+a4c2e1d9-cb4b-4b27-b2ea-9dbcc88445b6
+FAISE
+Cooks
+Cooks
+2d76b476-32d8-48a2-a3ed-343f79ddb5c8
+FALSE
+2.45%
+CA
+Cooks
+Cuisiniers
+2d76b476-32d8-48a2-a3ed-343/79ddb5c8
+FALSE
+2.45%
+Specimen Collection & Laboratory Analysis Occupations
+Specimen Collection & Medical Laboratory Analy 1e7b1478-2d18-4dc3-9997-67e5662c4af8
+SAIC-
+0.06%
+Veterinan Occunations
+Veterinan Occunations
+5cd964ec-6ae1-4458-8c47-b9ed529f294d
+FALSE
+0.05%
+!!!!!!!
