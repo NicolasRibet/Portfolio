@@ -1,0 +1,5 @@
+transaction_id,customer_name,amount,purchase_date
+101, Alice Smith ,$150.50,2026-07-01
+102,BOB JONES,,2026-07-02
+103, Charlie Brown,$45.00,
+104, Alice Smith ,$200.00,2026-07-04
