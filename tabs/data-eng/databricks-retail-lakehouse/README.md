@@ -172,36 +172,3 @@ Or with PySpark:
 df = spark.table("retail_portfolio.gold.fact_sales")
 display(df)
 ```
-
-## Suggested dashboard tiles
-
-Use the Gold tables to create:
-
-- Total revenue
-- Transaction count
-- Units sold
-- Average order value
-- Unique customers
-- Daily revenue trend
-- Product revenue ranking
-- Store revenue ranking
-- Payment-method mix
-- Signup volume by acquisition channel and country
-- Latest data-quality results
-
-## Portfolio talking points
-
-- Designed an incremental ingestion process that skips previously processed filenames.
-- Preserved raw source values and operational metadata in Bronze Delta tables.
-- Standardized inconsistent product labels and parsed dirty source dates in Silver.
-- Retained invalid and duplicate records in quarantine tables instead of silently deleting them.
-- Built a star-schema sales model and separate user-acquisition mart based on the actual join keys available.
-- Added executable tests that stop the workflow when quality expectations fail.
-
-## Resume bullets
-
-- Built an end-to-end medallion lakehouse pipeline in Databricks using PySpark, Spark SQL, Delta Lake, and Unity Catalog to process incremental weekly retail transaction files.
-- Developed idempotent ingestion logic with explicit schemas, source-file lineage, audit logging, and filename-based incremental processing.
-- Implemented data cleansing, type enforcement, date parsing, transaction-value reconciliation, deduplication, and invalid-record quarantine workflows.
-- Modeled analytics-ready Gold datasets with sales facts, reusable dimensions, and business aggregates for product, store, payment, and acquisition analysis.
-- Created automated data-quality tests and orchestrated a dependency-based Databricks job whose execution fails when expectations are violated.
