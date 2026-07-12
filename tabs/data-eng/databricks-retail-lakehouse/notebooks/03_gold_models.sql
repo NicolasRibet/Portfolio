@@ -93,3 +93,11 @@ SELECT YEAR(signup_date) AS signup_year, country, referral_source,
        ROUND(COUNT(*) / SUM(COUNT(*)) OVER (PARTITION BY YEAR(signup_date)), 4) AS annual_signup_share
 FROM retail_portfolio.silver.users
 GROUP BY YEAR(signup_date), country, referral_source;
+
+-- COMMAND ----------
+CREATE OR REPLACE TABLE retail_portfolio.gold.monthly_user_signups USING DELTA AS
+SELECT DATE_TRUNC('MONTH', signup_date) AS signup_month,
+       referral_source,
+       COUNT(*) AS user_signups
+FROM retail_portfolio.silver.users
+GROUP BY DATE_TRUNC('MONTH', signup_date), referral_source;
