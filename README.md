@@ -7,6 +7,7 @@ The layout mirrors the portfolio navigation:
 
 - `tabs/sql-iql-trino/`
 - `tabs/python/`
+- `tabs/data-eng/`
 - `tabs/web-apps-and-websites/`
 
 ## Current Project Index
@@ -23,6 +24,10 @@ The layout mirrors the portfolio navigation:
 
 - `tabs/python/rule-generator/` - Python rule generator, including the screenshot-style V1 and cleaned-up V2 versions.
 - `tabs/python/nicolas-jessica-python-sandbox/` - British-English to American-English exercise reconstructed from screenshot.
+
+### Data Engineering
+
+- [`tabs/data-eng/databricks-retail-lakehouse/`](tabs/data-eng/databricks-retail-lakehouse/) - end-to-end Databricks medallion pipeline with incremental ingestion, Delta Lake, Unity Catalog, quarantine handling, Gold dimensional models, data-quality tests, workflow orchestration, and SQL dashboard guidance.
 
 ### Web Apps & Websites
 
