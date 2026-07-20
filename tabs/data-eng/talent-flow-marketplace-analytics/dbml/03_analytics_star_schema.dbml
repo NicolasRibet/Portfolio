@@ -1,0 +1,296 @@
+Table dim_date {
+  date_key int [pk]
+  full_date date [not null]
+  day_of_week_name varchar(20) [not null]
+  day_of_month int [not null]
+  week_of_year int [not null]
+  month_number int [not null]
+  month_name varchar(20) [not null]
+  quarter_number int [not null]
+  year_number int [not null]
+  is_weekend boolean [not null]
+
+  Indexes {
+    full_date [unique]
+  }
+}
+
+Table dim_employer {
+  employer_key bigint [pk, increment]
+  employer_id bigint [not null]
+  employer_name varchar(200) [not null]
+  industry varchar(100) [not null]
+  company_size_band varchar(50) [not null]
+  country_code char(2) [not null]
+  is_verified boolean [not null]
+
+  Indexes {
+    employer_id [unique]
+    employer_name
+    industry
+  }
+}
+
+Table dim_job {
+  job_key bigint [pk, increment]
+  job_id bigint [not null]
+  job_title varchar(200) [not null]
+  employment_type varchar(50) [not null]
+  experience_level varchar(50) [not null]
+  remote_type varchar(50) [not null]
+  salary_min decimal(12,2)
+  salary_max decimal(12,2)
+  salary_currency char(3)
+  posted_date date [not null]
+  job_status varchar(30) [not null]
+
+  Indexes {
+    job_id [unique]
+    job_title
+  }
+}
+
+Table dim_location {
+  location_key bigint [pk, increment]
+  location_id bigint [not null]
+  city varchar(100) [not null]
+  state_region varchar(100)
+  country_code char(2) [not null]
+  postal_code varchar(20)
+
+  Indexes {
+    location_id [unique]
+    (country_code, state_region, city)
+  }
+}
+
+Table dim_category {
+  category_key bigint [pk, increment]
+  category_id bigint [not null]
+  category_name varchar(100) [not null]
+  category_family varchar(100) [not null]
+  parent_category_name varchar(100)
+
+  Indexes {
+    category_id [unique]
+    category_name
+  }
+}
+
+Table dim_device {
+  device_key int [pk, increment]
+  device_type varchar(30) [not null]
+  device_group varchar(30) [not null]
+
+  Indexes {
+    device_type [unique]
+  }
+}
+
+Table dim_traffic_source {
+  traffic_source_key int [pk, increment]
+  traffic_source varchar(50) [not null]
+  channel_group varchar(50) [not null]
+
+  Indexes {
+    traffic_source [unique]
+  }
+}
+
+Table dim_campaign {
+  campaign_key bigint [pk, increment]
+  campaign_id bigint [not null]
+  campaign_name varchar(200) [not null]
+  billing_model varchar(20) [not null]
+  campaign_status varchar(30) [not null]
+  start_date date [not null]
+  end_date date
+  daily_budget decimal(12,2) [not null]
+
+  Indexes {
+    campaign_id [unique]
+  }
+}
+
+Table fact_search {
+  search_fact_key bigint [pk, increment]
+  search_id bigint [not null]
+  date_key int [not null]
+  device_key int [not null]
+  traffic_source_key int [not null]
+  session_id char(36) [not null]
+  query_text varchar(255)
+  requested_location varchar(255)
+  results_count int [not null]
+  search_count int [not null, default: 1]
+  zero_result_count int [not null]
+
+  Indexes {
+    search_id [unique]
+    date_key
+    device_key
+    traffic_source_key
+  }
+}
+
+Table fact_impression {
+  impression_fact_key bigint [pk, increment]
+  impression_id bigint [not null]
+  date_key int [not null]
+  job_key bigint [not null]
+  employer_key bigint [not null]
+  location_key bigint [not null]
+  category_key bigint [not null]
+  device_key int [not null]
+  traffic_source_key int [not null]
+  campaign_key bigint
+  search_id bigint [not null]
+  session_id char(36) [not null]
+  result_position int [not null]
+  is_sponsored boolean [not null]
+  relevance_score decimal(5,4)
+  bid_amount decimal(10,2)
+  impression_count int [not null, default: 1]
+
+  Indexes {
+    impression_id [unique]
+    date_key
+    job_key
+    employer_key
+    category_key
+    campaign_key
+  }
+}
+
+Table fact_click {
+  click_fact_key bigint [pk, increment]
+  click_id bigint [not null]
+  impression_id bigint [not null]
+  date_key int [not null]
+  job_key bigint [not null]
+  employer_key bigint [not null]
+  location_key bigint [not null]
+  category_key bigint [not null]
+  device_key int [not null]
+  traffic_source_key int [not null]
+  campaign_key bigint
+  search_id bigint [not null]
+  session_id char(36) [not null]
+  is_sponsored boolean [not null]
+  result_position int [not null]
+  dwell_seconds int
+  click_count int [not null, default: 1]
+
+  Indexes {
+    click_id [unique]
+    impression_id
+    date_key
+    job_key
+    employer_key
+    category_key
+  }
+}
+
+Table fact_application {
+  application_fact_key bigint [pk, increment]
+  application_id bigint [not null]
+  date_key int [not null]
+  job_key bigint [not null]
+  employer_key bigint [not null]
+  location_key bigint [not null]
+  category_key bigint [not null]
+  device_key int
+  traffic_source_key int
+  campaign_key bigint
+  click_id bigint
+  impression_id bigint
+  application_status varchar(30) [not null]
+  application_source varchar(50) [not null]
+  completion_seconds int
+  application_count int [not null, default: 1]
+  submitted_application_count int [not null]
+
+  Indexes {
+    application_id [unique]
+    date_key
+    job_key
+    employer_key
+    category_key
+    campaign_key
+  }
+}
+
+Table fact_sponsored_spend {
+  spend_fact_key bigint [pk, increment]
+  date_key int [not null]
+  campaign_key bigint [not null]
+  job_key bigint [not null]
+  employer_key bigint [not null]
+  sponsored_impressions int [not null]
+  sponsored_clicks int [not null]
+  sponsored_applications int [not null]
+  billed_units int [not null]
+  unit_cost decimal(10,2) [not null]
+  spend_amount decimal(12,2) [not null]
+
+  Indexes {
+    (date_key, campaign_key, job_key) [unique]
+    campaign_key
+    employer_key
+  }
+}
+
+Ref: fact_search.date_key > dim_date.date_key
+Ref: fact_search.device_key > dim_device.device_key
+Ref: fact_search.traffic_source_key > dim_traffic_source.traffic_source_key
+
+Ref: fact_impression.date_key > dim_date.date_key
+Ref: fact_impression.job_key > dim_job.job_key
+Ref: fact_impression.employer_key > dim_employer.employer_key
+Ref: fact_impression.location_key > dim_location.location_key
+Ref: fact_impression.category_key > dim_category.category_key
+Ref: fact_impression.device_key > dim_device.device_key
+Ref: fact_impression.traffic_source_key > dim_traffic_source.traffic_source_key
+Ref: fact_impression.campaign_key > dim_campaign.campaign_key
+
+Ref: fact_click.date_key > dim_date.date_key
+Ref: fact_click.job_key > dim_job.job_key
+Ref: fact_click.employer_key > dim_employer.employer_key
+Ref: fact_click.location_key > dim_location.location_key
+Ref: fact_click.category_key > dim_category.category_key
+Ref: fact_click.device_key > dim_device.device_key
+Ref: fact_click.traffic_source_key > dim_traffic_source.traffic_source_key
+Ref: fact_click.campaign_key > dim_campaign.campaign_key
+
+Ref: fact_application.date_key > dim_date.date_key
+Ref: fact_application.job_key > dim_job.job_key
+Ref: fact_application.employer_key > dim_employer.employer_key
+Ref: fact_application.location_key > dim_location.location_key
+Ref: fact_application.category_key > dim_category.category_key
+Ref: fact_application.device_key > dim_device.device_key
+Ref: fact_application.traffic_source_key > dim_traffic_source.traffic_source_key
+Ref: fact_application.campaign_key > dim_campaign.campaign_key
+
+Ref: fact_sponsored_spend.date_key > dim_date.date_key
+Ref: fact_sponsored_spend.campaign_key > dim_campaign.campaign_key
+Ref: fact_sponsored_spend.job_key > dim_job.job_key
+Ref: fact_sponsored_spend.employer_key > dim_employer.employer_key
+
+TableGroup Dimensions {
+  dim_date
+  dim_employer
+  dim_job
+  dim_location
+  dim_category
+  dim_device
+  dim_traffic_source
+  dim_campaign
+}
+
+TableGroup Facts {
+  fact_search
+  fact_impression
+  fact_click
+  fact_application
+  fact_sponsored_spend
+}

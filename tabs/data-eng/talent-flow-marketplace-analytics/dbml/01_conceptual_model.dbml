@@ -1,0 +1,62 @@
+Table Employer {
+  employer_id bigint [pk]
+}
+
+Table Job {
+  job_id bigint [pk]
+  employer_id bigint
+  location_id bigint
+  category_id bigint
+}
+
+Table Location {
+  location_id bigint [pk]
+}
+
+Table JobCategory {
+  category_id bigint [pk]
+}
+
+Table SearchSession {
+  session_id varchar [pk]
+}
+
+Table Search {
+  search_id bigint [pk]
+  session_id varchar
+}
+
+Table Impression {
+  impression_id bigint [pk]
+  search_id bigint
+  job_id bigint
+}
+
+Table Click {
+  click_id bigint [pk]
+  impression_id bigint
+}
+
+Table Application {
+  application_id bigint [pk]
+  click_id bigint
+  job_id bigint
+}
+
+Table Campaign {
+  campaign_id bigint [pk]
+  employer_id bigint
+}
+
+Ref: Employer.employer_id < Job.employer_id
+Ref: Location.location_id < Job.location_id
+Ref: JobCategory.category_id < Job.category_id
+
+Ref: SearchSession.session_id < Search.session_id
+Ref: Search.search_id < Impression.search_id
+Ref: Job.job_id < Impression.job_id
+Ref: Impression.impression_id < Click.impression_id
+Ref: Click.click_id < Application.click_id
+Ref: Job.job_id < Application.job_id
+
+Ref: Employer.employer_id < Campaign.employer_id

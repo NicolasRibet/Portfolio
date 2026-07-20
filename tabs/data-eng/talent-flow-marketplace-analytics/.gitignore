@@ -1,0 +1,27 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Generated synthetic datasets
+data/generated/*.csv
+!data/generated/.gitkeep
+
+# Metabase runtime files
+metabase.jar
+metabase.db.*
+metabase-data/
+plugins/
+logs/
+
+# Local credentials and environment variables
+.env
+.env.*

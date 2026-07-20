@@ -1,0 +1,320 @@
+Enum job_status {
+  draft
+  active
+  paused
+  closed
+  expired
+}
+
+Enum campaign_status {
+  planned
+  active
+  paused
+  completed
+}
+
+Enum billing_model {
+  cpc
+  cpa
+}
+
+Enum application_status {
+  started
+  submitted
+  reviewed
+  rejected
+  hired
+  withdrawn
+}
+
+Enum device_type {
+  desktop
+  mobile_web
+  ios
+  android
+}
+
+Table employers {
+  employer_id bigint [pk, increment]
+  employer_name varchar(200) [not null]
+  industry varchar(100) [not null]
+  company_size_band varchar(50) [not null]
+  country_code char(2) [not null]
+  is_verified boolean [not null, default: false]
+  created_at datetime [not null]
+
+  Indexes {
+    employer_name
+    industry
+  }
+}
+
+Table locations {
+  location_id bigint [pk, increment]
+  city varchar(100) [not null]
+  state_region varchar(100)
+  country_code char(2) [not null]
+  postal_code varchar(20)
+  latitude decimal(9,6)
+  longitude decimal(9,6)
+
+  Indexes {
+    (country_code, state_region, city)
+  }
+}
+
+Table job_categories {
+  category_id bigint [pk, increment]
+  category_name varchar(100) [not null]
+  category_family varchar(100) [not null]
+  parent_category_id bigint
+
+  Indexes {
+    category_name [unique]
+  }
+}
+
+Table skills {
+  skill_id bigint [pk, increment]
+  skill_name varchar(100) [not null]
+  skill_family varchar(100) [not null]
+
+  Indexes {
+    skill_name [unique]
+  }
+}
+
+Table job_posts {
+  job_id bigint [pk, increment]
+  employer_id bigint [not null]
+  location_id bigint [not null]
+  primary_category_id bigint [not null]
+  job_title varchar(200) [not null]
+  employment_type varchar(50) [not null]
+  experience_level varchar(50) [not null]
+  remote_type varchar(50) [not null]
+  salary_min decimal(12,2)
+  salary_max decimal(12,2)
+  salary_currency char(3)
+  posted_at datetime [not null]
+  expires_at datetime
+  status job_status [not null]
+  created_at datetime [not null]
+  updated_at datetime [not null]
+
+  Indexes {
+    employer_id
+    location_id
+    primary_category_id
+    posted_at
+    status
+  }
+}
+
+Table job_skills {
+  job_id bigint [not null]
+  skill_id bigint [not null]
+  is_required boolean [not null, default: true]
+
+  Indexes {
+    (job_id, skill_id) [pk]
+  }
+}
+
+Table job_seekers {
+  job_seeker_id bigint [pk, increment]
+  country_code char(2) [not null]
+  experience_level varchar(50)
+  created_at datetime [not null]
+  marketing_opt_in boolean [not null, default: false]
+}
+
+Table search_sessions {
+  session_id char(36) [pk]
+  job_seeker_id bigint
+  anonymous_user_id char(36) [not null]
+  started_at datetime [not null]
+  device_type device_type [not null]
+  traffic_source varchar(50) [not null]
+  country_code char(2) [not null]
+
+  Indexes {
+    job_seeker_id
+    started_at
+    device_type
+    traffic_source
+  }
+}
+
+Table searches {
+  search_id bigint [pk, increment]
+  session_id char(36) [not null]
+  searched_at datetime [not null]
+  query_text varchar(255)
+  location_text varchar(255)
+  filters_json json
+  results_count int [not null]
+  page_number int [not null, default: 1]
+
+  Indexes {
+    session_id
+    searched_at
+    results_count
+  }
+}
+
+Table sponsorship_campaigns {
+  campaign_id bigint [pk, increment]
+  employer_id bigint [not null]
+  campaign_name varchar(200) [not null]
+  start_date date [not null]
+  end_date date
+  daily_budget decimal(12,2) [not null]
+  billing_model billing_model [not null]
+  campaign_status campaign_status [not null]
+  created_at datetime [not null]
+
+  Indexes {
+    employer_id
+    start_date
+    campaign_status
+  }
+}
+
+Table campaign_jobs {
+  campaign_id bigint [not null]
+  job_id bigint [not null]
+  added_at datetime [not null]
+
+  Indexes {
+    (campaign_id, job_id) [pk]
+  }
+}
+
+Table job_impressions {
+  impression_id bigint [pk, increment]
+  search_id bigint [not null]
+  job_id bigint [not null]
+  campaign_id bigint
+  impressed_at datetime [not null]
+  position int [not null]
+  is_sponsored boolean [not null, default: false]
+  predicted_relevance_score decimal(5,4)
+  bid_amount decimal(10,2)
+
+  Indexes {
+    search_id
+    job_id
+    campaign_id
+    impressed_at
+    is_sponsored
+    (search_id, job_id, position) [unique]
+  }
+}
+
+Table job_clicks {
+  click_id bigint [pk, increment]
+  impression_id bigint [not null]
+  clicked_at datetime [not null]
+  dwell_seconds int
+
+  Indexes {
+    impression_id [unique]
+    clicked_at
+  }
+}
+
+Table applications {
+  application_id bigint [pk, increment]
+  job_id bigint [not null]
+  job_seeker_id bigint [not null]
+  click_id bigint
+  started_at datetime [not null]
+  submitted_at datetime
+  application_status application_status [not null]
+  application_source varchar(50) [not null]
+  completion_seconds int
+
+  Indexes {
+    job_id
+    job_seeker_id
+    click_id
+    started_at
+    submitted_at
+    application_status
+  }
+}
+
+Table sponsored_spend_daily {
+  spend_date date [not null]
+  campaign_id bigint [not null]
+  job_id bigint [not null]
+  sponsored_impressions int [not null]
+  sponsored_clicks int [not null]
+  sponsored_applications int [not null]
+  billed_units int [not null]
+  unit_cost decimal(10,2) [not null]
+  spend_amount decimal(12,2) [not null]
+
+  Indexes {
+    (spend_date, campaign_id, job_id) [pk]
+    campaign_id
+    job_id
+  }
+}
+
+Ref: job_categories.parent_category_id > job_categories.category_id
+
+Ref: job_posts.employer_id > employers.employer_id
+Ref: job_posts.location_id > locations.location_id
+Ref: job_posts.primary_category_id > job_categories.category_id
+
+Ref: job_skills.job_id > job_posts.job_id
+Ref: job_skills.skill_id > skills.skill_id
+
+Ref: search_sessions.job_seeker_id > job_seekers.job_seeker_id
+Ref: searches.session_id > search_sessions.session_id
+
+Ref: sponsorship_campaigns.employer_id > employers.employer_id
+Ref: campaign_jobs.campaign_id > sponsorship_campaigns.campaign_id
+Ref: campaign_jobs.job_id > job_posts.job_id
+
+Ref: job_impressions.search_id > searches.search_id
+Ref: job_impressions.job_id > job_posts.job_id
+Ref: job_impressions.campaign_id > sponsorship_campaigns.campaign_id
+
+Ref: job_clicks.impression_id > job_impressions.impression_id
+
+Ref: applications.job_id > job_posts.job_id
+Ref: applications.job_seeker_id > job_seekers.job_seeker_id
+Ref: applications.click_id > job_clicks.click_id
+
+Ref: sponsored_spend_daily.campaign_id > sponsorship_campaigns.campaign_id
+Ref: sponsored_spend_daily.job_id > job_posts.job_id
+
+TableGroup MarketplaceSupply {
+  employers
+  job_posts
+  locations
+  job_categories
+  skills
+  job_skills
+}
+
+TableGroup MarketplaceDemand {
+  job_seekers
+  search_sessions
+  searches
+}
+
+TableGroup FunnelEvents {
+  job_impressions
+  job_clicks
+  applications
+}
+
+TableGroup SponsoredMarketplace {
+  sponsorship_campaigns
+  campaign_jobs
+  sponsored_spend_daily
+}
