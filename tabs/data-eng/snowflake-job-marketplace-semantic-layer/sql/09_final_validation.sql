@@ -1,0 +1,393 @@
+/* ============================================================
+   FILE: 09_final_validation.sql
+   PURPOSE:
+     Verify the completed governed Snowflake Semantic View project.
+
+   HOW TO RUN:
+     1. Run Sections 1-5 and confirm the expected results.
+     2. Run Section 6 role tests one statement at a time.
+     3. The final base-table query is SUPPOSED to fail.
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 1 — Confirm physical table row counts
+   Expected: every TEST_RESULT is PASS.
+   ============================================================ */
+
+USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+USE DATABASE JOB_MARKETPLACE;
+
+SELECT
+    'RAW.EMPLOYERS' AS OBJECT_NAME,
+    COUNT(*) AS ACTUAL_ROWS,
+    6 AS EXPECTED_ROWS,
+    IFF(COUNT(*) = 6, 'PASS', 'FAIL') AS TEST_RESULT
+FROM RAW.EMPLOYERS
+
+UNION ALL
+
+SELECT
+    'RAW.JOBS',
+    COUNT(*),
+    8,
+    IFF(COUNT(*) = 8, 'PASS', 'FAIL')
+FROM RAW.JOBS
+
+UNION ALL
+
+SELECT
+    'RAW.JOB_PERFORMANCE_DAILY',
+    COUNT(*),
+    3204,
+    IFF(COUNT(*) = 3204, 'PASS', 'FAIL')
+FROM RAW.JOB_PERFORMANCE_DAILY
+
+UNION ALL
+
+SELECT
+    'ANALYTICS.DIM_EMPLOYER',
+    COUNT(*),
+    6,
+    IFF(COUNT(*) = 6, 'PASS', 'FAIL')
+FROM ANALYTICS.DIM_EMPLOYER
+
+UNION ALL
+
+SELECT
+    'ANALYTICS.DIM_JOB',
+    COUNT(*),
+    8,
+    IFF(COUNT(*) = 8, 'PASS', 'FAIL')
+FROM ANALYTICS.DIM_JOB
+
+UNION ALL
+
+SELECT
+    'ANALYTICS.DIM_DATE',
+    COUNT(*),
+    90,
+    IFF(COUNT(*) = 90, 'PASS', 'FAIL')
+FROM ANALYTICS.DIM_DATE
+
+UNION ALL
+
+SELECT
+    'ANALYTICS.FCT_JOB_PERFORMANCE_DAILY',
+    COUNT(*),
+    3204,
+    IFF(COUNT(*) = 3204, 'PASS', 'FAIL')
+FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY
+
+ORDER BY OBJECT_NAME;
+
+
+/* ============================================================
+   SECTION 2 — Confirm physical-model data quality
+   Expected: every TEST_RESULT is PASS and INVALID_ROWS is 0.
+   ============================================================ */
+
+SELECT
+    'UNIQUE_FACT_GRAIN' AS TEST_NAME,
+    COUNT(*) AS INVALID_ROWS,
+    IFF(COUNT(*) = 0, 'PASS', 'FAIL') AS TEST_RESULT
+FROM (
+    SELECT
+        EVENT_DATE,
+        JOB_ID,
+        DEVICE_TYPE,
+        TRAFFIC_SOURCE
+    FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY
+    GROUP BY
+        EVENT_DATE,
+        JOB_ID,
+        DEVICE_TYPE,
+        TRAFFIC_SOURCE
+    HAVING COUNT(*) > 1
+)
+
+UNION ALL
+
+SELECT
+    'NO_ORPHAN_JOBS',
+    COUNT(*),
+    IFF(COUNT(*) = 0, 'PASS', 'FAIL')
+FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY F
+LEFT JOIN ANALYTICS.DIM_JOB J
+    ON F.JOB_ID = J.JOB_ID
+WHERE J.JOB_ID IS NULL
+
+UNION ALL
+
+SELECT
+    'NO_ORPHAN_DATES',
+    COUNT(*),
+    IFF(COUNT(*) = 0, 'PASS', 'FAIL')
+FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY F
+LEFT JOIN ANALYTICS.DIM_DATE D
+    ON F.EVENT_DATE = D.DATE_DAY
+WHERE D.DATE_DAY IS NULL
+
+UNION ALL
+
+SELECT
+    'VALID_FUNNEL_SEQUENCE',
+    COUNT(*),
+    IFF(COUNT(*) = 0, 'PASS', 'FAIL')
+FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY
+WHERE
+       CLICKS > IMPRESSIONS
+    OR APPLICATIONS > CLICKS
+    OR QUALIFIED_APPLICATIONS > APPLICATIONS
+    OR HIRES > QUALIFIED_APPLICATIONS
+
+UNION ALL
+
+SELECT
+    'SPONSORED_SPEND_RULE',
+    COUNT(*),
+    IFF(COUNT(*) = 0, 'PASS', 'FAIL')
+FROM ANALYTICS.FCT_JOB_PERFORMANCE_DAILY
+WHERE TRAFFIC_SOURCE <> 'SPONSORED'
+  AND SPONSORED_SPEND_USD <> 0
+
+ORDER BY TEST_NAME;
+
+
+/* ============================================================
+   SECTION 3 — Confirm the semantic object and metadata
+   Expected:
+     - One semantic view named JOB_MARKETPLACE_PERFORMANCE
+     - 13 semantic metrics
+     - 20 semantic dimensions
+   ============================================================ */
+
+USE ROLE JOB_MARKETPLACE_SEMANTIC_OWNER;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+USE DATABASE JOB_MARKETPLACE;
+USE SCHEMA SEMANTIC;
+
+SHOW SEMANTIC VIEWS
+    LIKE 'JOB_MARKETPLACE_PERFORMANCE'
+    IN SCHEMA JOB_MARKETPLACE.SEMANTIC;
+
+SHOW SEMANTIC METRICS
+    IN JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE;
+
+SHOW SEMANTIC DIMENSIONS
+    IN JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE;
+
+DESC SEMANTIC VIEW
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE;
+
+
+/* ============================================================
+   SECTION 4 — Confirm a governed semantic query works
+   Expected: AMER, APAC, and EMEA rows with non-null metrics.
+   ============================================================ */
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        JOBS.MARKET_REGION
+
+    METRICS
+        PERFORMANCE.ACTIVE_JOB_COUNT,
+        PERFORMANCE.TOTAL_IMPRESSIONS,
+        PERFORMANCE.TOTAL_CLICKS,
+        PERFORMANCE.TOTAL_APPLICATIONS,
+        PERFORMANCE.APPLY_RATE
+)
+ORDER BY MARKET_REGION;
+
+
+/* ============================================================
+   SECTION 5 — Reconcile semantic metrics to physical SQL
+   Expected: every RECONCILIATION_RESULT is PASS.
+   ============================================================ */
+
+WITH PHYSICAL_RESULTS AS (
+    SELECT
+        DATE_TRUNC('MONTH', F.EVENT_DATE)::DATE AS MONTH_START,
+        J.MARKET_REGION,
+        SUM(F.IMPRESSIONS) AS TOTAL_IMPRESSIONS,
+        SUM(F.CLICKS) AS TOTAL_CLICKS,
+        SUM(F.APPLICATIONS) AS TOTAL_APPLICATIONS,
+        SUM(F.APPLICATIONS)
+            / NULLIF(SUM(F.CLICKS), 0) AS APPLY_RATE
+    FROM JOB_MARKETPLACE.ANALYTICS.FCT_JOB_PERFORMANCE_DAILY F
+    INNER JOIN JOB_MARKETPLACE.ANALYTICS.DIM_JOB J
+        ON F.JOB_ID = J.JOB_ID
+    GROUP BY
+        DATE_TRUNC('MONTH', F.EVENT_DATE)::DATE,
+        J.MARKET_REGION
+),
+
+SEMANTIC_RESULTS AS (
+    SELECT *
+    FROM SEMANTIC_VIEW(
+        JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+        DIMENSIONS
+            CALENDAR.MONTH_START,
+            JOBS.MARKET_REGION
+
+        METRICS
+            PERFORMANCE.TOTAL_IMPRESSIONS,
+            PERFORMANCE.TOTAL_CLICKS,
+            PERFORMANCE.TOTAL_APPLICATIONS,
+            PERFORMANCE.APPLY_RATE
+    )
+)
+
+SELECT
+    COALESCE(P.MONTH_START, S.MONTH_START) AS MONTH_START,
+    COALESCE(P.MARKET_REGION, S.MARKET_REGION) AS MARKET_REGION,
+    P.TOTAL_IMPRESSIONS AS PHYSICAL_IMPRESSIONS,
+    S.TOTAL_IMPRESSIONS AS SEMANTIC_IMPRESSIONS,
+    P.TOTAL_APPLICATIONS AS PHYSICAL_APPLICATIONS,
+    S.TOTAL_APPLICATIONS AS SEMANTIC_APPLICATIONS,
+    P.APPLY_RATE AS PHYSICAL_APPLY_RATE,
+    S.APPLY_RATE AS SEMANTIC_APPLY_RATE,
+    CASE
+        WHEN P.TOTAL_IMPRESSIONS = S.TOTAL_IMPRESSIONS
+         AND P.TOTAL_CLICKS = S.TOTAL_CLICKS
+         AND P.TOTAL_APPLICATIONS = S.TOTAL_APPLICATIONS
+         AND ABS(P.APPLY_RATE - S.APPLY_RATE) < 0.000001
+            THEN 'PASS'
+        ELSE 'FAIL'
+    END AS RECONCILIATION_RESULT
+FROM PHYSICAL_RESULTS P
+FULL OUTER JOIN SEMANTIC_RESULTS S
+    ON P.MONTH_START = S.MONTH_START
+   AND P.MARKET_REGION = S.MARKET_REGION
+ORDER BY
+    MONTH_START,
+    MARKET_REGION;
+
+
+/* ============================================================
+   SECTION 6A — AMER analyst
+   Expected:
+     - Region query returns AMER only.
+     - Email begins with ***@
+   ============================================================ */
+
+USE ROLE JOB_MARKETPLACE_AMER_ANALYST;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        JOBS.MARKET_REGION
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+);
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        EMPLOYERS.EMPLOYER_NAME,
+        EMPLOYERS.ACCOUNT_MANAGER_EMAIL
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+)
+ORDER BY EMPLOYER_NAME;
+
+
+/* ============================================================
+   SECTION 6B — EMEA analyst
+   Expected:
+     - Region query returns EMEA only.
+     - Email begins with ***@
+   ============================================================ */
+
+USE ROLE JOB_MARKETPLACE_EMEA_ANALYST;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        JOBS.MARKET_REGION
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+);
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        EMPLOYERS.EMPLOYER_NAME,
+        EMPLOYERS.ACCOUNT_MANAGER_EMAIL
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+)
+ORDER BY EMPLOYER_NAME;
+
+
+/* ============================================================
+   SECTION 6C — Executive
+   Expected:
+     - Region query returns AMER, APAC, and EMEA.
+     - Full synthetic email addresses are visible.
+   ============================================================ */
+
+USE ROLE JOB_MARKETPLACE_EXECUTIVE;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        JOBS.MARKET_REGION
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+)
+ORDER BY MARKET_REGION;
+
+SELECT *
+FROM SEMANTIC_VIEW(
+    JOB_MARKETPLACE.SEMANTIC.JOB_MARKETPLACE_PERFORMANCE
+
+    DIMENSIONS
+        EMPLOYERS.EMPLOYER_NAME,
+        EMPLOYERS.ACCOUNT_MANAGER_EMAIL
+
+    METRICS
+        PERFORMANCE.TOTAL_APPLICATIONS
+)
+ORDER BY EMPLOYER_NAME;
+
+
+/* ============================================================
+   SECTION 6D — Intentional denial test
+   Run this last.
+
+   EXPECTED RESULT:
+     SQL access-control error.
+
+   A successful SELECT here means the analyst was granted too much access.
+   ============================================================ */
+
+USE ROLE JOB_MARKETPLACE_AMER_ANALYST;
+USE WAREHOUSE JOB_MARKETPLACE_WH;
+
+SELECT *
+FROM JOB_MARKETPLACE.ANALYTICS.FCT_JOB_PERFORMANCE_DAILY
+LIMIT 10;

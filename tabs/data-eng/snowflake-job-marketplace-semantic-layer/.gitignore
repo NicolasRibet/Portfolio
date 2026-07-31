@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Snowflake and local exports
+*.csv
+*.parquet
+*.log
+
+# Local credentials
+.env
+.env.*
