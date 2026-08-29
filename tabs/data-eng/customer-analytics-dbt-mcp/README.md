@@ -42,3 +42,7 @@ The project models raw sales data into analytics-ready marts for customer segmen
 ├── docs/
 └── screenshots/
 ```
+
+## Full [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0)
+
+https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
