@@ -1,7 +1,6 @@
 # Nicolas Ribet Portfolio Code Extracts
 
-This repository was populated from my Google Docs portfolio:
-https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
+This repository was populated from my main Google Docs [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0).
 
 The layout mirrors the portfolio navigation:
 
