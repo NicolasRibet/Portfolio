@@ -172,3 +172,7 @@ Or with PySpark:
 df = spark.table("retail_portfolio.gold.fact_sales")
 display(df)
 ```
+
+## Full [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0)
+
+https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
