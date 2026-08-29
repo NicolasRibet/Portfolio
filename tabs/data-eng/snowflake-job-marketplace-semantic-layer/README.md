@@ -217,3 +217,7 @@ ORDER BY MONTH_START, MARKET_REGION;
 - Dynamic Data Masking
 - Object Tags
 - Git and GitHub
+
+## Full [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0)
+
+https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
