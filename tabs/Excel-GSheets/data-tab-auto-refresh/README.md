@@ -32,11 +32,22 @@ I also documented the ORC cronjob implementation in a step-by-step internal guid
 
 ### Automated segmentation tracking sheet
 
-![Automated segmentation tracking sheet](screenshots/data-tab-auto-refresh-sheet.jpg)
+![Automated segmentation tracking sheet — 1](screenshots/data-tab-auto-refresh-sheet-01.jpg)
+![Automated segmentation tracking sheet — 2](screenshots/data-tab-auto-refresh-sheet-02.jpg)
+![Automated segmentation tracking sheet — 3](screenshots/data-tab-auto-refresh-sheet-03.jpg)
+![Automated segmentation tracking sheet — 4](screenshots/data-tab-auto-refresh-sheet-04.jpg)
+![Automated segmentation tracking sheet — 5](screenshots/data-tab-auto-refresh-sheet-05.jpg)
+![Automated segmentation tracking sheet — 6](screenshots/data-tab-auto-refresh-sheet-06.jpg)
+![Automated segmentation tracking sheet — 7](screenshots/data-tab-auto-refresh-sheet-07.jpg)
 
 ### ORC Cronjob Guide
 
-![ORC Cronjob Guide](screenshots/orc-cronjob-guide.jpg)
+![ORC Cronjob Guide — 1](screenshots/orc-cronjob-guide-01.jpg)
+![ORC Cronjob Guide — 2](screenshots/orc-cronjob-guide-02.jpg)
+![ORC Cronjob Guide — 3](screenshots/orc-cronjob-guide-03.jpg)
+![ORC Cronjob Guide — 4](screenshots/orc-cronjob-guide-04.jpg)
+![ORC Cronjob Guide — 5](screenshots/orc-cronjob-guide-05.jpg)
+![ORC Cronjob Guide — 6](screenshots/orc-cronjob-guide-06.jpg)
 
 ## Public portfolio note
 
