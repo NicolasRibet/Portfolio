@@ -79,3 +79,7 @@ To let Airflow authenticate with Google Cloud:
 ## Notes
 
 The BigQuery load job uses `WRITE_TRUNCATE` for repeatable demo runs. For production historical loads, switch the write disposition to `WRITE_APPEND`.
+
+## Full [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0)
+
+https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
