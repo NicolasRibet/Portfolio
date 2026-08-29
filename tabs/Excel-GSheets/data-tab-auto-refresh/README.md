@@ -28,6 +28,16 @@ I also documented the ORC cronjob implementation in a step-by-step internal guid
 
 `Google Sheets` · `Sheets IQL` · `Python` · `Google Sheets API` · `Kerberos` · `ORC` · `GitLab`
 
+## Screenshots
+
+### Automated segmentation tracking sheet
+
+![Automated segmentation tracking sheet](screenshots/data-tab-auto-refresh-sheet.jpg)
+
+### ORC Cronjob Guide
+
+![ORC Cronjob Guide](screenshots/orc-cronjob-guide.jpg)
+
 ## Public portfolio note
 
 The original ticket, spreadsheet, wiki, and GitLab repository lived on internal Indeed systems. This public portfolio version intentionally excludes proprietary source code, credentials, and private internal links.
