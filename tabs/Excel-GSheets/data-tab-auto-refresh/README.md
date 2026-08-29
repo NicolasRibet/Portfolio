@@ -41,3 +41,7 @@ I also documented the ORC cronjob implementation in a step-by-step internal guid
 ## Public portfolio note
 
 The original ticket, spreadsheet, wiki, and GitLab repository lived on internal Indeed systems. This public portfolio version intentionally excludes proprietary source code, credentials, and private internal links.
+
+## Full [portfolio](https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0)
+
+https://docs.google.com/document/d/1SUDN3kGx39rz5Dp-Zsn3EfDgNE8PBm15iujdAQW0Hkg/edit?tab=t.0
