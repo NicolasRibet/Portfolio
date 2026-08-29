@@ -32,11 +32,11 @@ I also documented the ORC cronjob implementation in a step-by-step internal guid
 
 ### Automated segmentation tracking sheet
 
-![Automated segmentation tracking sheet — 1](screenshots/Automated-segmentation-tracking-sheet.jpg)
+![Automated segmentation tracking sheet — 1](screenshots/Automated-segmentation-tracking-sheet.png)
 
 ### ORC Cronjob Guide
 
-![ORC Cronjob Guide — 1](screenshots/orc-cronjob-guide-01.jpg)
+![ORC Cronjob Guide — 1](screenshots/ORC-Cronjob-Guide.png)
 
 ## Public portfolio note
 
